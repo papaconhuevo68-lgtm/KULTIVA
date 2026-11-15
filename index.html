@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kultiva · Knows what's coming. Sows what is necessary.</title>
+  <title>Kultiva · Knows what's coming. Plants what makes sense.</title>
   
   <!-- Google Fonts: Outfit (600, 700) y Source Sans 3 (400, 600) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,10 +44,115 @@
       background-color: #EEF2F1;
       color: #14303A;
       font-family: 'Source Sans 3', system-ui, sans-serif;
+      text-rendering: optimizeLegibility;
     }
 
     h1, h2, h3, .font-display {
       font-family: 'Outfit', system-ui, sans-serif;
+    }
+
+    header {
+      box-shadow: 0 1px 5px rgba(20, 48, 58, 0.05);
+    }
+
+    main section h2 {
+      letter-spacing: -0.025em;
+    }
+
+    #problema article,
+    #cadena .grid > div,
+    #cadena .chain-step-card,
+    #adaptation .grid > div {
+      box-shadow: 0 1px 3px rgba(20, 48, 58, 0.045);
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    #problema article:hover,
+    #cadena .grid > div:hover,
+    #cadena .chain-step-card:hover,
+    #adaptation .grid > div:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(20, 48, 58, 0.08);
+    }
+
+    #cadena [data-chain-step] {
+      cursor: pointer;
+    }
+
+    #cadena .chain-step-card[data-active="true"] {
+      border-color: #2F7D4F;
+      box-shadow: 0 0 0 2px rgba(47, 125, 79, 0.16), 0 8px 20px rgba(20, 48, 58, 0.08);
+    }
+
+    #cadena .chain-step-node {
+      outline: none;
+      transition: opacity 180ms ease, filter 180ms ease;
+    }
+
+    #cadena .chain-step-node:focus-visible circle,
+    #cadena .chain-step-node[data-active="true"] circle {
+      stroke: #14303A;
+      stroke-width: 4px;
+    }
+
+    #cadena .chain-step-node:not([data-active="true"]):not(:focus-visible) {
+      opacity: 0.72;
+    }
+
+    #chain-selection {
+      min-height: 1.5rem;
+    }
+
+    .data-note a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    #modulos [role="tablist"] {
+      gap: 0.5rem;
+      padding: 0.4rem;
+      border-radius: 1rem;
+    }
+
+    #modulos [role="tablist"] button {
+      border: 1px solid transparent;
+      border-radius: 0.75rem;
+    }
+
+    #modulos [role="tablist"] button:not(.bg-quinua) {
+      background: #fff;
+      border-color: rgba(20, 48, 58, 0.1);
+    }
+
+    @media (max-width: 639px) {
+      #modulos [role="tablist"] {
+        width: 100%;
+        border-radius: 1.25rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #modulos [role="tablist"] button {
+        width: 100%;
+        flex: none;
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #problema article,
+      #cadena .grid > div,
+      #cadena .chain-step-card,
+      #adaptation .grid > div {
+        transition: none;
+      }
+
+      #problema article:hover,
+      #cadena .grid > div:hover,
+      #cadena .chain-step-card:hover,
+      #adaptation .grid > div:hover {
+        transform: none;
+      }
     }
 
     /* Animaciones suaves y continuas para ilustraciones SVG */
@@ -320,8 +425,8 @@
           </div>
 
           <h1 class="font-outfit font-bold text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] tracking-tight text-noche">
-            He knows what is coming.<br>
-            <span class="text-quinua">Sow what makes sense.</span>
+            Know what's coming.<br>
+            <span class="text-quinua">Plant what makes sense.</span>
           </h1>
 
           <p class="text-lg sm:text-xl text-noche/85 leading-relaxed max-w-xl">
@@ -349,7 +454,7 @@
             <div class="absolute inset-x-5 top-5 z-20 flex items-center justify-between gap-3 text-xs font-semibold text-white/80 sm:inset-x-7 sm:top-7">
               <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/20 px-3 py-2 backdrop-blur-md">
                 <span class="h-2 w-2 rounded-full bg-[#9CC3D5]"></span>
-                NASA ORBIT · POWER / SMAP
+                NASA ORBIT · MULTI-SOURCE DEMO
               </span>
               <span class="rounded-full border border-white/15 bg-black/20 px-3 py-2 backdrop-blur-md">AYACUCHO, PERU</span>
             </div>
@@ -372,8 +477,8 @@
             <div class="earth-card-coverage absolute left-4 top-[27%] z-20 w-[43%] max-w-[190px] rounded-xl border border-white/15 bg-[#071523]/65 p-3 text-white shadow-lg backdrop-blur-md sm:left-6 sm:p-4">
               <p class="font-outfit text-xs font-bold sm:text-sm">Satellite coverage</p>
               <div class="mt-2 flex items-end gap-1.5">
-                <span class="font-outfit text-xl font-bold text-[#9CC3D5] sm:text-2xl">30 m</span>
-                <span class="pb-1 text-[10px] text-white/65 sm:text-xs">plot resolution</span>
+                  <span class="font-outfit text-xl font-bold text-[#9CC3D5] sm:text-2xl">30 m</span>
+                  <span class="pb-1 text-[10px] text-white/65 sm:text-xs">HLS/Landsat pixel</span>
               </div>
               <svg viewBox="0 0 120 26" class="mt-1 h-6 w-full" aria-label="Satellite data trend" role="img">
                 <path d="M1 22 C16 20 16 13 30 16 S48 21 60 11 S79 16 91 8 S108 10 119 2" fill="none" stroke="#9CC3D5" stroke-width="2" stroke-linecap="round"/>
@@ -397,7 +502,7 @@
             <div class="absolute inset-x-4 bottom-4 z-20 rounded-2xl border border-white/15 bg-[#071523]/75 p-4 text-white shadow-lg backdrop-blur-lg sm:inset-x-6 sm:bottom-6 sm:p-5">
               <div class="flex items-center justify-between gap-4">
                 <div>
-                  <p class="text-[10px] font-semibold uppercase text-[#9CC3D5] sm:text-xs">Virtual sensor</p>
+                  <p class="text-[10px] font-semibold uppercase text-[#9CC3D5] sm:text-xs">Illustrative demo · not live data</p>
                   <p class="mt-1 font-outfit text-sm font-bold sm:text-base">From orbit to the field</p>
                 </div>
                 <div class="flex gap-4 text-right">
@@ -422,7 +527,7 @@
     <section id="problema" class="py-20 px-6 bg-white border-y border-noche/10">
       <div class="max-w-6xl mx-auto">
         <div class="max-w-2xl mb-14">
-          <p class="font-outfit font-semibold text-sm uppercase tracking-wider text-quinua mb-2">the problems in Ayacucho</p>
+          <p class="font-outfit font-semibold text-sm uppercase tracking-wider text-quinua mb-2">Challenges in Ayacucho</p>
           <h2 class="font-outfit font-bold text-3xl sm:text-4xl text-noche">The problem in numbers</h2>
           <p class="text-lg text-noche/75 mt-3">
             Decisions are made without information about actual weather or demand. The result: oversupply, late pests, and contracts being cancelled.
@@ -440,13 +545,13 @@
                   <path d="M22 9 H28 V15" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <p class="font-outfit font-bold text-3xl sm:text-4xl text-noche tracking-tight mb-2">S/ 0.50 vs S/ 0.90</p>
+              <p class="font-outfit font-bold text-2xl sm:text-3xl text-noche tracking-tight mb-2">Illustrative price comparison</p>
               <p class="text-base text-noche/80 leading-relaxed">
-                Everyone plants the same crop and prices fall to <strong>S/ 0.50/kg</strong> (a loss-making sale). Farmers who planted early were able to sell up to <strong>S/ 0.90/kg</strong> on-farm.
+                This example contrasts <strong>S/ 0.50/kg</strong> and <strong>S/ 0.90/kg</strong> for potatoes. It is not a current market quote; the source, location, and observation date were not provided.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-noche/10 text-xs font-semibold text-noche/60">
-              Adjusting planting dates and coordinating output protects income
+              Demonstration only · price source and date unavailable
             </div>
           </article>
 
@@ -460,13 +565,13 @@
                   <path d="M16 4V7M16 25V28M4 16H7M25 16H28M7.5 7.5L9.6 9.6M22.4 22.4L24.5 24.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
                 </svg>
               </div>
-              <p class="font-outfit font-bold text-3xl sm:text-4xl text-noche tracking-tight mb-2">October vs January</p>
+              <p class="font-outfit font-bold text-2xl sm:text-3xl text-noche tracking-tight mb-2">Reported calendar shift</p>
               <p class="text-base text-noche/80 leading-relaxed">
-                Heat accelerated the maturation of prickly pear in Ayacucho from January to <strong>late October 2026</strong>. Traditional dates no longer provide a reliable warning.
+                A sample scenario describes prickly pear maturing earlier than its usual January timing. No observation record or source was provided, so this is not a verified 2026 statistic.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-noche/10 text-xs font-semibold text-noche/60">
-              Relationship with ENFEN / SENAMHI still to be confirmed
+              Demonstration only · source and observation date unavailable
             </div>
           </article>
 
@@ -480,13 +585,13 @@
                   <path d="M24 6V11H19M8 26V21H13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <p class="font-outfit font-bold text-3xl sm:text-4xl text-noche tracking-tight mb-2">EU Reg. 2018/848</p>
+              <p class="font-outfit font-bold text-2xl sm:text-3xl text-noche tracking-tight mb-2">EU Organic Regulation</p>
               <p class="text-base text-noche/80 leading-relaxed">
-                Humidity and heat trigger <strong>late blight, moths, and mildew</strong>. Rotating with legumes reduces pests and is required to sell organic quinoa in Europe.
+                Regulation (EU) 2018/848 sets requirements for organic production and certification. Crop rotation may support soil fertility, but rotation alone does not certify a crop or guarantee eligibility for export.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-noche/10 text-xs font-semibold text-noche/60">
-              Ayacucho: 1st organic quinoa producer in Peru
+              The former “first producer” claim is omitted because no source or year was provided
             </div>
           </article>
         </div>
@@ -513,86 +618,102 @@
             <line x1="75" y1="45" x2="825" y2="45" stroke="#2F7D4F" stroke-width="3" stroke-linecap="round" class="anim-flow-line"/>
             
             <!-- Node 1 -->
-            <circle cx="75" cy="45" r="18" fill="#14303A"/>
-            <circle cx="75" cy="45" r="5" fill="#9CC3D5"/>
-            <text x="75" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">1. NASA satellite</text>
+            <g class="chain-step-node" data-chain-step="1" role="button" tabindex="0" aria-label="Select step 1: NASA satellite" aria-pressed="false">
+              <circle cx="75" cy="45" r="18" fill="#14303A"/>
+              <circle cx="75" cy="45" r="5" fill="#9CC3D5"/>
+              <text x="75" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">1. NASA satellite</text>
+            </g>
 
             <!-- Node 2 -->
-            <circle cx="225" cy="45" r="18" fill="#9CC3D5"/>
-            <text x="225" y="49" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">02</text>
-            <text x="225" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">2. Risk and pests</text>
+            <g class="chain-step-node" data-chain-step="2" role="button" tabindex="0" aria-label="Select step 2: Risk and pests" aria-pressed="false">
+              <circle cx="225" cy="45" r="18" fill="#9CC3D5"/>
+              <text x="225" y="49" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">02</text>
+              <text x="225" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">2. Risk and pests</text>
+            </g>
 
             <!-- Node 3 -->
-            <circle cx="375" cy="45" r="18" fill="#A3325F"/>
-            <text x="375" y="49" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#FFFFFF">03</text>
-            <text x="375" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">3. Alert</text>
+            <g class="chain-step-node" data-chain-step="3" role="button" tabindex="0" aria-label="Select step 3: Alert" aria-pressed="false">
+              <circle cx="375" cy="45" r="18" fill="#A3325F"/>
+              <text x="375" y="49" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#FFFFFF">03</text>
+              <text x="375" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">3. Alert</text>
+            </g>
 
             <!-- Node 4 -->
-            <circle cx="525" cy="45" r="18" fill="#D9A441"/>
-            <text x="525" y="49" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">04</text>
-            <text x="525" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">4. Decision</text>
+            <g class="chain-step-node" data-chain-step="4" role="button" tabindex="0" aria-label="Select step 4: Decision" aria-pressed="false">
+              <circle cx="525" cy="45" r="18" fill="#D9A441"/>
+              <text x="525" y="49" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">04</text>
+              <text x="525" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">4. Decision</text>
+            </g>
 
             <!-- Node 5 -->
-            <circle cx="675" cy="45" r="18" fill="#2F7D4F"/>
-            <text x="675" y="49" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#FFFFFF">05</text>
-            <text x="675" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">5. Healthy soil</text>
+            <g class="chain-step-node" data-chain-step="5" role="button" tabindex="0" aria-label="Select step 5: Healthy soil" aria-pressed="false">
+              <circle cx="675" cy="45" r="18" fill="#2F7D4F"/>
+              <text x="675" y="49" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#FFFFFF">05</text>
+              <text x="675" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">5. Healthy soil</text>
+            </g>
 
             <!-- Node 6 -->
-            <circle cx="825" cy="45" r="18" fill="#14303A"/>
-            <text x="825" y="49" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#D9A441">S/</text>
-            <text x="825" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">6. Economic value</text>
+            <g class="chain-step-node" data-chain-step="6" role="button" tabindex="0" aria-label="Select step 6: Economic value" aria-pressed="false">
+              <circle cx="825" cy="45" r="18" fill="#14303A"/>
+              <text x="825" y="49" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#D9A441">S/</text>
+              <text x="825" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="12" fill="#14303A">6. Economic value</text>
+            </g>
           </svg>
         </div>
 
+        <p id="chain-selection" class="mb-5 text-sm font-semibold text-noche/70" aria-live="polite">
+          Select a step in the diagram or a card to explore the chain.
+        </p>
+
         <!-- Clean 6-card chain grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white rounded-2xl p-6 border border-noche/10">
+        <div id="chain-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="chain-step-card bg-white rounded-2xl p-6 border border-noche/10" data-chain-step="1" role="button" tabindex="0" aria-pressed="false">
             <span class="inline-block px-2.5 py-0.5 rounded-full bg-noche text-hielo font-outfit font-bold text-xs mb-3">01 · Virtual sensor</span>
             <h3 class="font-outfit font-bold text-lg text-noche mb-1.5">The satellite is the sensor</h3>
             <p class="text-sm text-noche/80 leading-relaxed">
-              NASA data measures rainfall, temperature, soil moisture, and plant vigor without installing hardware in the field.
+              Public Earth-observation products can provide rainfall, temperature, soil-moisture, and vegetation indicators; this prototype does not yet ingest or validate those data for a plot.
             </p>
-          </div>
+          </article>
 
-          <div class="bg-white rounded-2xl p-6 border border-noche/10">
+          <article class="chain-step-card bg-white rounded-2xl p-6 border border-noche/10" data-chain-step="2" role="button" tabindex="0" aria-pressed="false">
             <span class="inline-block px-2.5 py-0.5 rounded-full bg-hielo/40 text-noche font-outfit font-bold text-xs mb-3">02 · Diagnosis</span>
             <h3 class="font-outfit font-bold text-lg text-noche mb-1.5">Data becomes risk</h3>
             <p class="text-sm text-noche/80 leading-relaxed">
               We detect frost, drought, accumulated heat (harvest), and conditions favorable for blight, moths, or mildew.
             </p>
-          </div>
+          </article>
 
-          <div class="bg-white rounded-2xl p-6 border border-noche/10">
+          <article class="chain-step-card bg-white rounded-2xl p-6 border border-noche/10" data-chain-step="3" role="button" tabindex="0" aria-pressed="false">
             <span class="inline-block px-2.5 py-0.5 rounded-full bg-quinua/15 text-quinua font-outfit font-bold text-xs mb-3">03 · Communication</span>
             <h3 class="font-outfit font-bold text-lg text-noche mb-1.5">Risk becomes an alert</h3>
             <p class="text-sm text-noche/80 leading-relaxed">
-              Farmers receive the warning days in advance via WhatsApp or voice note in Spanish and Ayacucho Quechua.
+              A future alert could be delivered by WhatsApp or voice note in Spanish; this demo is not connected to a live forecast.
             </p>
-          </div>
+          </article>
 
-          <div class="bg-white rounded-2xl p-6 border border-noche/10">
+          <article class="chain-step-card bg-white rounded-2xl p-6 border border-noche/10" data-chain-step="4" role="button" tabindex="0" aria-pressed="false">
             <span class="inline-block px-2.5 py-0.5 rounded-full bg-papa/25 text-noche font-outfit font-bold text-xs mb-3">04 · Action</span>
             <h3 class="font-outfit font-bold text-lg text-noche mb-1.5">The alert leads to a decision</h3>
             <p class="text-sm text-noche/80 leading-relaxed">
               Clear, jargon-free recommendation: harvest now or wait, and which crop to rotate in the next season.
             </p>
-          </div>
+          </article>
 
-          <div class="bg-white rounded-2xl p-6 border border-noche/10">
+          <article class="chain-step-card bg-white rounded-2xl p-6 border border-noche/10" data-chain-step="5" role="button" tabindex="0" aria-pressed="false">
             <span class="inline-block px-2.5 py-0.5 rounded-full bg-tarwi/20 text-tarwi font-outfit font-bold text-xs mb-3">05 · Regeneration</span>
             <h3 class="font-outfit font-bold text-lg text-noche mb-1.5">The decision improves the soil</h3>
             <p class="text-sm text-noche/80 leading-relaxed">
-              Rotating with legumes (tarwi or broad bean) restores natural nitrogen, reduces pests, and supports organic certification.
+              Rotations with legumes (tarwi or broad bean) can contribute to soil fertility and pest management; they do not by themselves establish organic certification.
             </p>
-          </div>
+          </article>
 
-          <div class="bg-white rounded-2xl p-6 border border-noche/10">
+          <article class="chain-step-card bg-white rounded-2xl p-6 border border-noche/10" data-chain-step="6" role="button" tabindex="0" aria-pressed="false">
             <span class="inline-block px-2.5 py-0.5 rounded-full bg-noche text-white font-outfit font-bold text-xs mb-3">06 · Regional scale</span>
             <h3 class="font-outfit font-bold text-lg text-noche mb-1.5">Guides the season</h3>
             <p class="text-sm text-noche/80 leading-relaxed">
               Cooperatives and the Regional Agriculture Directorate coordinate planting to meet volumes and organic certification requirements.
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -603,16 +724,18 @@
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <p class="font-outfit font-semibold text-sm uppercase tracking-wider text-quinua mb-2">Interactive prototype · Sample data</p>
-            <h2 class="font-outfit font-bold text-3xl sm:text-4xl text-noche">Two views, one same chain</h2>
+            <h2 class="font-outfit font-bold text-3xl sm:text-4xl text-noche">Two views, one connected chain</h2>
           </div>
 
           <!-- Farmer vs Cooperative Planner switcher -->
           <div class="inline-flex p-1.5 rounded-full bg-niebla border border-noche/10 self-start" role="tablist" aria-label="Prototype view selector">
             <button type="button" onclick="switchView('agricultor')" id="tab-agricultor"
+              aria-pressed="true"
               class="px-5 py-2.5 rounded-full font-outfit font-semibold text-sm bg-quinua text-white shadow-sm transition-all">
               Farmer view
             </button>
             <button type="button" onclick="switchView('comprador')" id="tab-comprador"
+              aria-pressed="false"
               class="px-5 py-2.5 rounded-full font-outfit font-semibold text-sm text-noche/80 hover:text-noche transition-all">
               Cooperative / Exporter planner
             </button>
@@ -630,15 +753,15 @@
                 <p class="text-sm text-noche/70">3-season rotation calendar · Altitude 3,180 m</p>
               </div>
               <span class="px-3 py-1 rounded-full bg-tarwi text-white font-outfit font-bold text-xs">
-                Low risk · Active rotation
+                Sample scenario · not a live risk score
               </span>
             </div>
 
             <!-- Brandkit alert traffic light -->
             <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 rounded-full bg-hielo text-noche font-outfit font-bold text-xs">Frost: likely Thursday</span>
-              <span class="px-3 py-1 rounded-full bg-papa text-noche font-outfit font-bold text-xs">Medium risk: mildew</span>
-              <span class="px-3 py-1 rounded-full bg-tarwi text-white font-outfit font-bold text-xs">Low risk: soil</span>
+              <span class="px-3 py-1 rounded-full bg-hielo text-noche font-outfit font-bold text-xs">Frost alert · illustrative</span>
+              <span class="px-3 py-1 rounded-full bg-papa text-noche font-outfit font-bold text-xs">Mildew risk · not calculated</span>
+              <span class="px-3 py-1 rounded-full bg-tarwi text-white font-outfit font-bold text-xs">Soil risk · not calculated</span>
             </div>
 
             <!-- 3-season visual calendar -->
@@ -647,26 +770,26 @@
                 <span class="text-xs font-outfit font-bold uppercase text-noche/50">Season 1 (Past)</span>
                 <p class="font-outfit font-bold text-lg text-noche mt-1">Native potato</p>
                 <p class="text-xs text-noche/75 mt-1">Harvest complete. Soil needs a rest from solanaceous crops.</p>
-                <span class="inline-block mt-3 px-2 py-0.5 rounded bg-niebla text-[11px] font-semibold text-noche">Observed · Sentinel-2</span>
+                <span class="inline-block mt-3 px-2 py-0.5 rounded bg-niebla text-[11px] font-semibold text-noche">Demonstration · not a verified observation</span>
               </div>
 
               <div class="bg-white rounded-2xl p-4 border-t-4 border-tarwi shadow-sm ring-2 ring-tarwi/30">
                 <span class="text-xs font-outfit font-bold uppercase text-tarwi">Season 2 (Now)</span>
                 <p class="font-outfit font-bold text-lg text-noche mt-1">Tarwi (legume)</p>
                 <p class="text-xs text-noche/75 mt-1">Restores natural nitrogen and interrupts the potato pest cycle.</p>
-                <span class="inline-block mt-3 px-2 py-0.5 rounded bg-tarwi/15 text-[11px] font-semibold text-tarwi">Recommended · Contract</span>
+                <span class="inline-block mt-3 px-2 py-0.5 rounded bg-tarwi/15 text-[11px] font-semibold text-tarwi">Example recommendation · validate locally</span>
               </div>
 
               <div class="bg-white rounded-2xl p-4 border-t-4 border-quinua shadow-sm">
                 <span class="text-xs font-outfit font-bold uppercase text-quinua">Season 3 (Next)</span>
                 <p class="font-outfit font-bold text-lg text-noche mt-1">Organic quinoa</p>
-                <p class="text-xs text-noche/75 mt-1">Suitable for EU 2018/848 export after rotation with a legume.</p>
-                <span class="inline-block mt-3 px-2 py-0.5 rounded bg-niebla text-[11px] font-semibold text-noche">Estimated · GAEZ</span>
+                <p class="text-xs text-noche/75 mt-1">A crop suitability estimate does not establish organic certification or export eligibility.</p>
+                <span class="inline-block mt-3 px-2 py-0.5 rounded bg-niebla text-[11px] font-semibold text-noche">Illustrative estimate · not a GAEZ result</span>
               </div>
             </div>
 
             <p class="text-xs text-noche/65">
-              * Illustrative sample data. The satellite warns about conditions; the farmer and technician validate in the field.
+              All plot names, seasons, alerts, and recommendations here are demonstration content; no dated satellite extract or field-validation record is attached.
             </p>
           </div>
 
@@ -678,19 +801,21 @@
                   <svg class="w-7 h-7" style="--dot-color: #9CC3D5;"><use href="#-icon"/></svg>
                   <div>
                     <span class="font-outfit font-bold text-base block leading-none"> Kultiva · WhatsApp</span>
-                    <span class="text-xs text-hielo">Close voice · No app needed</span>
+                    <span class="text-xs text-hielo">Voice-first · No app needed</span>
                   </div>
                 </div>
 
-                <!-- Spanish / Quechua selector -->
+                <!-- English / Spanish sample alert selector -->
                 <div class="inline-flex rounded-full bg-white/10 p-1">
-                  <button type="button" onclick="setWaLang('es')" id="wa-btn-es"
+                  <button type="button" onclick="setWaLang('en')" id="wa-btn-en"
+                    aria-pressed="true"
                     class="px-3 py-1 rounded-full text-xs font-outfit font-semibold bg-white text-noche transition-all">
-                    Spanish
+                    English
                   </button>
-                  <button type="button" onclick="setWaLang('qu')" id="wa-btn-qu"
+                  <button type="button" onclick="setWaLang('es')" id="wa-btn-es"
+                    aria-pressed="false"
                     class="px-3 py-1 rounded-full text-xs font-outfit font-semibold text-white/80 hover:text-white transition-all">
-                    Quechua
+                    Español
                   </button>
                 </div>
               </div>
@@ -702,23 +827,23 @@
                   <span class="text-[11px] font-semibold text-noche/60">06:15 a.m.</span>
                 </div>
                 <p id="wa-p1" class="text-sm sm:text-base leading-relaxed">
-                  <strong>Don Santos plot:</strong> a frost is likely on Thursday and Friday before dawn.
+                  <strong>Demonstration alert:</strong> frost risk cannot be confirmed from the information shown here. Check a local forecast and consult a qualified technician.
                 </p>
                 <p id="wa-p2" class="text-sm sm:text-base leading-relaxed">
-                  <strong>What to do:</strong> if you have quinoa in bloom, irrigate the previous afternoon. For the next season, rotate to <strong>tarwi</strong> to protect the soil and secure the contract.
+                  <strong>Next step:</strong> do not apply a frost-protection action based on this sample. Confirm crop stage, local conditions, and suitable measures with an agricultural technician.
                 </p>
                 <p id="wa-p3" class="text-sm leading-relaxed pt-2 border-t border-noche/15 font-semibold text-noche/85">
-                  Harvest: your potato matures in about 12 days depending on accumulated heat.
+                  No live forecast or crop-maturity calculation is connected to this demonstration.
                 </p>
               </div>
 
-              <!-- Simulated voice note bar in Quechua/Spanish -->
+              <!-- Example voice note status -->
               <div class="mt-4 px-4 py-2.5 rounded-2xl bg-white/10 flex items-center justify-between text-xs text-niebla">
                 <span class="flex items-center gap-2 font-semibold">
                   <span class="w-2.5 h-2.5 rounded-full bg-papa animate-ping"></span>
-                  Voice note available (0:24)
+                  Example voice note (not attached)
                 </span>
-                <span class="text-hielo font-outfit font-semibold">Voice validated by INIA/Technician</span>
+                <span class="text-hielo font-outfit font-semibold">No validation record supplied</span>
               </div>
             </div>
           </div>
@@ -732,16 +857,22 @@
           <div class="lg:col-span-7 bg-niebla/70 rounded-3xl p-6 sm:p-8 border border-noche/10 space-y-6">
             <div class="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <h3 class="font-outfit font-bold text-xl text-noche">Supply Planner · 500 t Quinoa</h3>
-                <p class="text-sm text-noche/70">Active rule: quinoa returns only if it was not planted in the previous 2 seasons.</p>
+                <h3 class="font-outfit font-bold text-xl text-noche">Illustrative quinoa supply planner</h3>
+                <p class="text-sm text-noche/70">Sample rotation scenarios only; organic eligibility must be assessed by an authorized certifier.</p>
               </div>
               <span class="px-3 py-1 rounded-full bg-noche text-hielo font-outfit font-bold text-xs">
-                100% EU Traceability
+                Sample records · not verified
               </span>
             </div>
 
             <div class="overflow-x-auto bg-white rounded-2xl border border-noche/10">
-              <table class="w-full text-left text-sm">
+              <table class="w-full min-w-[640px] table-fixed text-left text-sm">
+                <colgroup>
+                  <col class="w-[26%]">
+                  <col class="w-[27%]">
+                  <col class="w-[27%]">
+                  <col class="w-[20%]">
+                </colgroup>
                 <thead class="bg-niebla/80 text-noche font-outfit font-bold text-xs uppercase">
                   <tr>
                     <th class="py-3 px-4">Plot / Partner</th>
@@ -754,24 +885,28 @@
                   <tr>
                     <td class="py-3.5 px-4 font-semibold">P-01 · Don Santos</td>
                     <td class="py-3.5 px-4 text-noche/75">Potato → Tarwi</td>
-                    <td class="py-3.5 px-4"><span class="px-2.5 py-0.5 rounded-full bg-quinua text-white text-xs font-bold">Organic quinoa</span></td>
-                    <td class="py-3.5 px-4 text-xs font-semibold text-tarwi">Observed (30 m)</td>
+                    <td class="py-3.5 px-4"><span class="inline-flex max-w-full whitespace-normal break-words rounded-full bg-quinua px-2.5 py-1 text-center text-xs font-bold leading-tight text-white">Quinoa · sample</span></td>
+                    <td class="py-3.5 px-4 text-xs font-semibold text-noche/70">Demonstration</td>
                   </tr>
                   <tr>
                     <td class="py-3.5 px-4 font-semibold">P-02 · Mrs. Marcelina</td>
                     <td class="py-3.5 px-4 text-noche/75">Quinoa → Potato</td>
-                    <td class="py-3.5 px-4"><span class="px-2.5 py-0.5 rounded-full bg-tarwi text-white text-xs font-bold">Rotate to Tarwi</span></td>
-                    <td class="py-3.5 px-4 text-xs font-semibold text-tarwi">Observed (30 m)</td>
+                    <td class="py-3.5 px-4"><span class="inline-flex max-w-full whitespace-normal break-words rounded-full bg-tarwi px-2.5 py-1 text-center text-xs font-bold leading-tight text-white">Rotate to Tarwi</span></td>
+                    <td class="py-3.5 px-4 text-xs font-semibold text-noche/70">Demonstration</td>
                   </tr>
                   <tr>
                     <td class="py-3.5 px-4 font-semibold">P-03 · Chiara Community</td>
                     <td class="py-3.5 px-4 text-noche/75">Broad bean → Potato</td>
-                    <td class="py-3.5 px-4"><span class="px-2.5 py-0.5 rounded-full bg-quinua text-white text-xs font-bold">Organic quinoa</span></td>
-                    <td class="py-3.5 px-4 text-xs font-semibold text-noche/70">Estimated (GAEZ)</td>
+                    <td class="py-3.5 px-4"><span class="inline-flex max-w-full whitespace-normal break-words rounded-full bg-quinua px-2.5 py-1 text-center text-xs font-bold leading-tight text-white">Quinoa · sample</span></td>
+                    <td class="py-3.5 px-4 text-xs font-semibold text-noche/70">Demonstration</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <p class="data-note text-xs text-noche/65">
+              Demonstration table: plot histories, allocations, and evidence labels are sample UI content, not verified farm records or a traceability claim.
+            </p>
+
           </div>
 
           <!-- Plot passport -->
@@ -781,32 +916,32 @@
                 <svg class="w-7 h-7" style="--dot-color: #9CC3D5;"><use href="#Kultiva-icon"/></svg>
                 <span class="font-outfit font-bold text-lg">Plot Passport</span>
               </div>
-              <span class="px-3 py-1 rounded-full bg-tarwi text-white text-xs font-outfit font-bold">
-                Verified with Kultiva
+              <span class="px-3 py-1 rounded-full bg-papa text-noche text-xs font-outfit font-bold">
+                Demonstration · not verified
               </span>
             </div>
 
             <div class="space-y-3 text-sm">
               <div class="flex justify-between py-1.5 border-b border-white/10">
                 <span class="text-niebla/70">Organic quinoa suitability</span>
-                <span class="font-semibold text-hielo">High · Observed</span>
+                <span class="font-semibold text-hielo">Not assessed · sample</span>
               </div>
               <div class="flex justify-between py-1.5 border-b border-white/10">
                 <span class="text-niebla/70">Frost / erosion risk</span>
-                <span class="font-semibold text-papa">Medium · NASADEM 30 m</span>
+                <span class="font-semibold text-papa">Not calculated · inputs absent</span>
               </div>
               <div class="flex justify-between py-1.5 border-b border-white/10">
                 <span class="text-niebla/70">EU rotation compliance</span>
-                <span class="font-semibold text-tarwi">Approved (previous legume)</span>
+                <span class="font-semibold text-tarwi">Not certified · rotation alone is insufficient</span>
               </div>
               <div class="flex justify-between py-1.5">
                 <span class="text-niebla/70">Contract status</span>
-                <span class="font-semibold text-white">Pre-agreed before planting</span>
+                <span class="font-semibold text-white">Sample status · not verified</span>
               </div>
             </div>
 
             <p class="text-xs text-niebla/70 pt-2">
-              Allows exporters and cooperatives to evaluate hundreds of small plots without prior field visits.
+              This mock passport does not replace field inspection, verified records, or certification.
             </p>
           </div>
 
@@ -866,7 +1001,7 @@
               </span>
               <h3 class="font-outfit font-bold text-xl text-noche mb-2">Cooperatives and the Regional Government (DRA)</h3>
               <p class="text-sm sm:text-base text-noche/80 leading-relaxed">
-                They plan the season, record rotation, and assess oversupply risk to meet volume and organic certification targets.
+                They can plan the season, record rotation, compare projected supply with demand, and track certification requirements.
               </p>
             </div>
           </div>
@@ -960,10 +1095,10 @@
             <!-- NASA and Peru source chips -->
             <div class="flex flex-wrap gap-2 mb-6">
               <span class="px-3 py-1 rounded-full bg-white/10 text-hielo text-xs font-semibold">NASA POWER (~55 km)</span>
-              <span class="px-3 py-1 rounded-full bg-white/10 text-hielo text-xs font-semibold">NASADEM (30 m)</span>
+              <span class="px-3 py-1 rounded-full bg-white/10 text-hielo text-xs font-semibold">NASADEM (1 arc-second posting)</span>
               <span class="px-3 py-1 rounded-full bg-white/10 text-hielo text-xs font-semibold">SMAP & GPM IMERG</span>
               <span class="px-3 py-1 rounded-full bg-white/10 text-hielo text-xs font-semibold">HLS / Sentinel-2 (10–30 m)</span>
-              <span class="px-3 py-1 rounded-full bg-white/10 text-papa text-xs font-semibold">FAO GAEZ & PISCO SENAMHI</span>
+              <span class="px-3 py-1 rounded-full bg-white/10 text-papa text-xs font-semibold">FAO GAEZ · SENAMHI PISCO</span>
             </div>
 
             <!-- What we promise vs what we do not promise -->
@@ -971,25 +1106,70 @@
               <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
                 <p class="font-outfit font-bold text-tarwi text-base">What we do</p>
                 <ul class="space-y-1.5 text-niebla/85 text-xs sm:text-sm">
-                  <li>• We estimate climate risk and conditions favorable for pests.</li>
-                  <li>• We declare the scale: regional climate (~55 km) vs field-scale (30 m).</li>
-                  <li>• We label each datum as <em>Observed</em>, <em>Estimated</em>, or <em>No evidence</em>.</li>
+                  <li>• The current page is a prototype; it does not calculate live climate or pest risk.</li>
+                  <li>• Spatial resolution belongs to a particular product and band; it is not the accuracy of a farm recommendation.</li>
+                  <li>• Each item should be labeled <em>Observed</em>, <em>Classified</em>, <em>Estimated</em>, or <em>Demonstration</em>.</li>
                 </ul>
               </div>
 
               <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
                 <p class="font-outfit font-bold text-quinua text-base">What we do not promise</p>
                 <ul class="space-y-1.5 text-niebla/85 text-xs sm:text-sm">
-                  <li>• We do not predict the future exactly: we issue risk alerts.</li>
-                  <li>• We do not “see” the pest from space; field validation is required.</li>
-                  <li>• We do we don't set the market prices.</li>
+                  <li>• We do not provide a validated forecast or an exact prediction.</li>
+                  <li>• We do not identify pests from space; field scouting is required.</li>
+                  <li>• We do not set or verify market prices.</li>
                 </ul>
               </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                <p class="font-outfit font-bold text-hielo text-base">How risk would be assessed</p>
+                <p class="text-niebla/85 text-xs sm:text-sm leading-relaxed">
+                  Frost screening needs a dated local minimum-temperature forecast, crop and growth stage, and a crop-specific injury threshold; duration below that threshold and field elevation also matter. This page has no such inputs, so its frost alert is illustrative and no protection action is prescribed.
+                </p>
+                <p class="text-niebla/85 text-xs sm:text-sm leading-relaxed">
+                  Erosion is not inferred from elevation alone. A potential soil-loss estimate such as USLE/RUSLE requires rainfall erosivity (R), soil erodibility (K), slope-length/steepness (LS), cover/management (C), and support practice (P), with locally suitable inputs. None are populated here; erosion risk is not calculated.
+                </p>
+              </div>
+              <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                <p class="font-outfit font-bold text-papa text-base">Evidence status in this demo</p>
+                <ul class="space-y-1.5 text-niebla/85 text-xs sm:text-sm">
+                  <li>• <em>Observed:</em> a measurement or field record with source, location, and date.</li>
+                  <li>• <em>Classified:</em> a category assigned by a documented method to observations.</li>
+                  <li>• <em>Estimated:</em> a model output with inputs, version, and period stated.</li>
+                  <li>• <em>Demonstration:</em> illustrative interface content, not a measured result.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-3 data-note text-xs sm:text-sm text-niebla/85">
+              <div>
+                <p class="font-outfit font-bold text-white text-base">Source references</p>
+                <p>Official product and regulation pages checked 15 November 2026. This date identifies the reference-page check, not the date of the sample data displayed above.</p>
+              </div>
+              <ul class="space-y-1.5">
+                <li><a href="https://power.larc.nasa.gov/docs/" target="_blank" rel="noopener noreferrer">NASA POWER documentation</a> · gridded meteorological/solar products; product scale varies and is not plot-level ground truth.</li>
+                <li><a href="https://hls.gsfc.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA Harmonized Landsat and Sentinel-2 (HLS)</a> · harmonized surface reflectance products; HLS uses a 30 m grid.</li>
+                <li><a href="https://sentiwiki.copernicus.eu/web/s2-mission" target="_blank" rel="noopener noreferrer">ESA Sentinel-2 mission specification</a> · bands have 10 m, 20 m, and 60 m native resolutions.</li>
+                <li><a href="https://www.earthdata.nasa.gov/data/catalog/lpcloud-nasadem-hgt-001" target="_blank" rel="noopener noreferrer">NASADEM dataset catalog</a> · 1 arc-second elevation posting; elevation data alone does not calculate erosion risk.</li>
+                <li><a href="https://gpm.nasa.gov/data/imerg" target="_blank" rel="noopener noreferrer">NASA GPM IMERG</a> · satellite-based precipitation estimates, not a local frost forecast.</li>
+                <li><a href="https://gaez.fao.org/" target="_blank" rel="noopener noreferrer">FAO GAEZ v4 data portal</a> · suitability data; no GAEZ result for these demo plots is attached.</li>
+                <li><a href="https://www.senamhi.gob.pe/?p=descarga-datos-hidrometeorologicos" target="_blank" rel="noopener noreferrer">SENAMHI meteorological data portal</a> · no station record or PISCO extract for the demo is attached.</li>
+                <li><a href="https://eur-lex.europa.eu/eli/reg/2018/848/oj" target="_blank" rel="noopener noreferrer">Regulation (EU) 2018/848</a> · organic production and labeling requirements; compliance/certification is not established by crop rotation alone.</li>
+                <li><a href="https://www.fao.org/4/t1765e/t1765e0e.htm" target="_blank" rel="noopener noreferrer">FAO overview of the USLE model</a> · erosion factors and limitations.</li>
+              </ul>
+              <p>Price and calendar figures in the problem cards have no source, location-level record, or observation date supplied; they are marked as examples and must not be presented as current statistics.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2 text-xs sm:text-sm text-niebla/85">
+              <p class="font-outfit font-bold text-white text-base">Team and agronomic validation</p>
+              <p>No team credentials, named agronomist, field-trial protocol, or signed validation record were supplied with this demo. The previous INIA/technician validation claim has been removed. Add evidence only when the team can publish the reviewer’s role, date, method, and scope with permission.</p>
             </div>
           </div>
 
           <p class="text-xs text-hielo/80 border-t border-white/10 pt-4">
-            Evidence rule: if there is no parameter validated by INIA or a local technician for Ayacucho, Kultiva states “insufficient evidence” and never invents data.
+            Evidence rule: without a dated source and locally validated method for Ayacucho, Kultiva labels a result “demonstration” or “insufficient evidence” and does not invent data.
           </p>
         </div>
       </div>
@@ -1005,7 +1185,7 @@
           <span class="font-outfit font-bold text-2xl text-white">Kultiva</span>
         </div>
         <p class="text-sm text-niebla/75">
-          Knows what is coming. Plants what makes sense. · Rotation is progress. · The satellite warns, the field decides.
+          Knows what's coming. Plants what makes sense. · Rotation is progress. · The satellite informs; the field decides.
         </p>
       </div>
 
@@ -1045,6 +1225,38 @@
       if (event.key === 'Escape') setMobileMenuOpen(false);
     });
 
+    const chainSection = document.getElementById('cadena');
+    const chainSelection = document.getElementById('chain-selection');
+
+    function selectChainStep(step) {
+      if (!chainSection || !chainSelection) return;
+
+      const selectedCard = chainSection.querySelector(`.chain-step-card[data-chain-step="${step}"]`);
+      const selectedTitle = selectedCard?.querySelector('h3')?.textContent?.trim();
+      if (!selectedCard || !selectedTitle) return;
+
+      chainSection.querySelectorAll('[data-chain-step]').forEach((item) => {
+        const isSelected = item.dataset.chainStep === step;
+        item.dataset.active = String(isSelected);
+        item.setAttribute('aria-pressed', String(isSelected));
+      });
+
+      chainSelection.textContent = `Step ${step} selected: ${selectedTitle}.`;
+    }
+
+    chainSection?.addEventListener('click', (event) => {
+      const stepControl = event.target.closest('[data-chain-step]');
+      if (stepControl) selectChainStep(stepControl.dataset.chainStep);
+    });
+
+    chainSection?.addEventListener('keydown', (event) => {
+      const stepControl = event.target.closest('[data-chain-step][role="button"]');
+      if (stepControl && (event.key === 'Enter' || event.key === ' ')) {
+        event.preventDefault();
+        selectChainStep(stepControl.dataset.chainStep);
+      }
+    });
+
     /**
      * Switches between the Farmer view and the Cooperative / Exporter planner.
      * @param {'agricultor' | 'comprador'} view
@@ -1056,6 +1268,12 @@
       const tabComprador = document.getElementById('tab-comprador');
 
       if (!viewAgricultor || !viewComprador || !tabAgricultor || !tabComprador) return;
+
+      const showFarmerView = view === 'agricultor';
+      viewAgricultor.setAttribute('aria-hidden', String(!showFarmerView));
+      viewComprador.setAttribute('aria-hidden', String(showFarmerView));
+      tabAgricultor.setAttribute('aria-pressed', String(showFarmerView));
+      tabComprador.setAttribute('aria-pressed', String(!showFarmerView));
 
       if (view === 'agricultor') {
         viewAgricultor.classList.remove('hidden');
@@ -1079,8 +1297,8 @@
     }
 
     /**
-     * Switches the sample WhatsApp message between Spanish and Ayacucho Quechua.
-     * @param {'es' | 'qu'} lang
+     * Switches the sample WhatsApp message between English and Spanish.
+     * @param {'en' | 'es'} lang
      */
     function setWaLang(lang) {
       const bubble = document.getElementById('wa-bubble');
@@ -1088,36 +1306,40 @@
       const p1 = document.getElementById('wa-p1');
       const p2 = document.getElementById('wa-p2');
       const p3 = document.getElementById('wa-p3');
+      const btnEn = document.getElementById('wa-btn-en');
       const btnEs = document.getElementById('wa-btn-es');
-      const btnQu = document.getElementById('wa-btn-qu');
 
-      if (!bubble || !title || !p1 || !p2 || !p3) return;
+      if (!bubble || !title || !p1 || !p2 || !p3 || !btnEn || !btnEs) return;
 
       // Restart the smooth entrance animation
       bubble.classList.remove('anim-chat');
       void bubble.offsetWidth;
       bubble.classList.add('anim-chat');
 
-      if (lang === 'qu') {
-        title.textContent = 'Kutiva · Frost and rotation alert';
-        p1.innerHTML = '<strong>Don Santos plot:</strong> frost is likely on Thursday and Friday before dawn.';
-        p2.innerHTML = '<strong>What to do:</strong> if you have quinoa in bloom, irrigate the previous afternoon. For the next season, rotate to <strong>tarwi</strong> to protect the soil and secure the contract.';
-        p3.textContent = 'Harvest: your potato matures in about 12 days depending on accumulated heat.';
-
-        btnQu.classList.add('bg-white', 'text-noche');
-        btnQu.classList.remove('text-white/80');
-        btnEs.classList.remove('bg-white', 'text-noche');
-        btnEs.classList.add('text-white/80');
-      } else {
-        title.textContent = 'Kultiva · Frost and rotation alert';
-        p1.innerHTML = '<strong>Don Santos plot:</strong> a frost is likely on Thursday and Friday before dawn.';
-        p2.innerHTML = '<strong>What to do:</strong> if you have quinoa in bloom, irrigate the previous afternoon. For the next season, rotate to <strong>tarwi</strong> to protect the soil and secure the contract.';
-        p3.textContent = 'Harvest: your potato matures in about 12 days depending on accumulated heat.';
+      if (lang === 'es') {
+        title.textContent = 'Kultiva · Aviso demostrativo de helada';
+        p1.innerHTML = '<strong>Aviso de ejemplo:</strong> con la información disponible aquí no se puede confirmar el riesgo de helada. Consulta el pronóstico local y a un técnico calificado.';
+        p2.innerHTML = '<strong>Siguiente paso:</strong> no tomes medidas de protección basándote en este ejemplo. Confirma la etapa del cultivo, las condiciones locales y las medidas adecuadas con un técnico agrícola.';
+        p3.textContent = 'Esta demostración no está conectada a un pronóstico en vivo ni calcula la madurez del cultivo.';
 
         btnEs.classList.add('bg-white', 'text-noche');
         btnEs.classList.remove('text-white/80');
-        btnQu.classList.remove('bg-white', 'text-noche');
-        btnQu.classList.add('text-white/80');
+        btnEn.classList.remove('bg-white', 'text-noche');
+        btnEn.classList.add('text-white/80');
+        btnEs.setAttribute('aria-pressed', 'true');
+        btnEn.setAttribute('aria-pressed', 'false');
+      } else {
+        title.textContent = 'Kultiva · Illustrative frost alert';
+        p1.innerHTML = '<strong>Demonstration alert:</strong> frost risk cannot be confirmed from the information shown here. Check a local forecast and consult a qualified technician.';
+        p2.innerHTML = '<strong>Next step:</strong> do not apply a frost-protection action based on this sample. Confirm crop stage, local conditions, and suitable measures with an agricultural technician.';
+        p3.textContent = 'No live forecast or crop-maturity calculation is connected to this demonstration.';
+
+        btnEn.classList.add('bg-white', 'text-noche');
+        btnEn.classList.remove('text-white/80');
+        btnEs.classList.remove('bg-white', 'text-noche');
+        btnEs.classList.add('text-white/80');
+        btnEn.setAttribute('aria-pressed', 'true');
+        btnEs.setAttribute('aria-pressed', 'false');
       }
     }
   </script>
